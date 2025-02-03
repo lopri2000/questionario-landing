@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionario</title>
+</head>
+<body>
+    <h1>Questionario</h1>
+    <form id="quizForm">
+        <p>1. Qual è il tuo colore preferito?</p>
+        <label><input type="radio" name="q1" value="Rosso"> Rosso</label>
+        <label><input type="radio" name="q1" value="Blu"> Blu</label>
+        <label><input type="radio" name="q1" value="Verde"> Verde</label>
+
+        <p>2. Ti piace viaggiare?</p>
+        <label><input type="radio" name="q2" value="Sì"> Sì</label>
+        <label><input type="radio" name="q2" value="No"> No</label>
+
+        <br><br>
+        <button type="button" onclick="submitQuiz()">Invia Risposte</button>
+    </form>
+
+    <script>
+        function submitQuiz() {
+            let answers = {};
+            let form = document.getElementById("quizForm");
+            let inputs = form.querySelectorAll("input[type=radio]:checked");
+            
+            inputs.forEach(input => {
+                answers[input.name] = input.value;
+            });
+
+            console.log("Risposte:", answers);
+            alert("Grazie per aver risposto!");
+        }
+    </script>
+</body>
+</html>
